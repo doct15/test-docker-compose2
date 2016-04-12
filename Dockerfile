@@ -6,7 +6,7 @@
 #
 
 # Pull base image.
-FROM dockerfile/ubuntu
+FROM ubuntu:14.04
 
 # Install Nginx.
 RUN \
@@ -24,7 +24,7 @@ VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/v
 WORKDIR /etc/nginx
 
 #FROM orchardup/php5
-ADD . /code
+ADD . /var/lib/nginx
 
 # Define default command.
 CMD ["nginx"]
