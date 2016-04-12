@@ -1,5 +1,3 @@
-#FROM orchardup/php5
-ADD . /code
 
 #
 # Nginx Dockerfile
@@ -24,6 +22,9 @@ VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/v
 
 # Define working directory.
 WORKDIR /etc/nginx
+
+#FROM orchardup/php5
+ADD . /code
 
 # Define default command.
 CMD ["nginx"]
