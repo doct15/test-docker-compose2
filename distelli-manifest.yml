@@ -1,4 +1,4 @@
-bmcgehee/test-docker-compose1:
+bmcgehee/test-docker-compose2:
   Build:
     - echo "Nothing to build"
   PkgInclude:
