@@ -32,7 +32,7 @@ WORKDIR /etc/nginx
 ADD . /var/lib/nginx
 
 # Define default command.
-CMD ["nginx"]
+CMD ["/usr/sbin/nginx"]
 
 # Expose ports.
 EXPOSE 80
