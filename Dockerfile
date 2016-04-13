@@ -32,6 +32,10 @@ WORKDIR /etc/nginx
 ADD wordpress/ /var/www/html
 ADD config/nginx-sites-available-default /etc/nginx/sites-available/default
 
+# Change owner
+RUN \
+  chown -R www-data:www-data /var/www/html
+
 # Define default command.
 CMD ["/usr/sbin/nginx"]
 
