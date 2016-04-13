@@ -29,7 +29,8 @@ VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/v
 WORKDIR /etc/nginx
 
 #FROM orchardup/php5
-ADD . /var/www/html
+ADD wordpress/ /var/www/html
+ADD config/nginx-sites-available-default /etc/nginx/sites-available/default
 
 # Define default command.
 CMD ["/usr/sbin/nginx"]
