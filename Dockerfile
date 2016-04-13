@@ -11,30 +11,24 @@ FROM ubuntu:14.04
 # Install add-apt-repository
 RUN \
   apt-get update && \
-  apt-get install -y software-properties-common php5-fpm
-
-# Install Nginx.  
-RUN \
-  add-apt-repository -y ppa:nginx/stable && \
-  apt-get update && \
+  apt-get install -y software-properties-common php5-fpm && \
   apt-get install -y nginx && \
-  rm -rf /var/lib/apt/lists/* && \
   echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
   chown -R www-data:www-data /var/lib/nginx
 
 # Define mountable directories.
-VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
+VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/usr/share/nginx/html"]
 
 # Define working directory.
 WORKDIR /etc/nginx
 
 #FROM orchardup/php5
-ADD wordpress/ /var/www/html
+ADD wordpress/ /usr/share/nginx/html
 ADD config/nginx-sites-available-default /etc/nginx/sites-available/default
 
 # Change owner
 RUN \
-  chown -R www-data:www-data /var/www/html
+  chown -R www-data:www-data /usr/share/nginx/html
 
 # Define default command.
 CMD ["/usr/sbin/nginx"]
