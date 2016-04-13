@@ -29,7 +29,7 @@ VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/v
 WORKDIR /etc/nginx
 
 #FROM orchardup/php5
-ADD . /var/lib/nginx
+ADD . /var/www/html
 
 # Define default command.
 CMD ["/usr/sbin/nginx"]
