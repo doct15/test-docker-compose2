@@ -1,6 +1,6 @@
 
 #
-# Nginx Dockerfile
+# Nginx and PHP Dockerfile
 #
 # https://github.com/dockerfile/nginx
 #
@@ -47,7 +47,6 @@ WORKDIR /etc/nginx
 
 #FROM orchardup/php5
 ADD wordpress/ /usr/share/nginx/html
-ADD config/nginx-sites-available-default /etc/nginx/sites-available/default
 
 # Change owner
 RUN \
