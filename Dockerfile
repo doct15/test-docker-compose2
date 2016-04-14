@@ -42,6 +42,13 @@ find /etc/php5/cli/conf.d/ -name "*.ini" -exec sed -i -re 's/^(\s*)#(.*)/\1;\2/g
 # mycrypt conf
 RUN php5enmod mcrypt
 
+# nginx site conf
+RUN rm -Rf /etc/nginx/conf.d/* && \
+rm -Rf /etc/nginx/sites-available/default && \
+mkdir -p /etc/nginx/ssl/
+ADD config/nginx-site.conf /etc/nginx/sites-available/default.conf
+RUN ln -s /etc/nginx/sites-available/default.conf /etc/nginx/sites-enabled/default.conf
+
 # Define working directory.
 WORKDIR /etc/nginx
 
@@ -49,8 +56,7 @@ WORKDIR /etc/nginx
 ADD wordpress/ /usr/share/nginx/html
 
 # Change owner
-RUN \
-  chown -R www-data:www-data /usr/share/nginx/html
+RUN chown -R www-data:www-data /usr/share/nginx/html
 
 # Define default command.
 CMD ["/usr/sbin/nginx"]
@@ -58,4 +64,4 @@ CMD ["/usr/sbin/nginx"]
 # Expose ports.
 EXPOSE 80
 EXPOSE 443
-#EXPOSE 9000
+
