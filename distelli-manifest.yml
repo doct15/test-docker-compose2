@@ -20,6 +20,7 @@ bmcgehee/test-docker-compose2:
     - "/bin/"
     - "tomcat-war-docker/"
     - "/src/*"
+    = "/www/files/"
     
   Env:
     # Set Env variables here
