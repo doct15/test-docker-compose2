@@ -17,6 +17,7 @@ bmcgehee/test-docker-compose2:
     - "*"
   PkgExclude:
     - "/bin/*"
+    - "/config"
     
   Env:
     # Set Env variables here
