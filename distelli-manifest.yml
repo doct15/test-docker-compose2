@@ -1,8 +1,23 @@
 bmcgehee/test-docker-compose2:
   Build:
-    - echo "Nothing to build"
+    - echo "===testing==="
+    - pwd
+    - ls -la
+    - echo "---ls -la tomcat-war-docker--"
+    - ls -la tomcat-war-docker || true
+    - git submodule init
+    - echo "---ls -la tomcat-war-docker--"
+    - ls -la tomcat-war-docker || true
+    - git submodule update
+    - echo "---ls -la tomcat-war-docker--"
+    - ls -la tomcat-war-docker || true
+    - ls -la
+    
   PkgInclude:
-    - '*'
+    - "*"
+  PkgExclude:
+    - "/bin/"
+    
   Env:
     # Set Env variables here
     - PORT: "8000"
