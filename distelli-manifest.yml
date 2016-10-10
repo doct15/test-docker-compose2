@@ -16,10 +16,10 @@ bmcgehee/test-docker-compose2:
   PkgInclude:
     - "*"
   PkgExclude:
-    - '/config'
-    - '/bin/'
-    - 'tomcat-war-docker/'
-    - '/src/*'
+    - "/config"
+    - "/bin/"
+    - "tomcat-war-docker/"
+    - "/src/*"
     
   Env:
     # Set Env variables here
